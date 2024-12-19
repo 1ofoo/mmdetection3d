@@ -87,15 +87,13 @@ def create_nuscenes_infos(root_path,
     if test:
         print('test sample: {}'.format(len(train_nusc_infos)))
         data = dict(infos=train_nusc_infos, metadata=metadata)
-        info_path = osp.join(out_dir,
-                             '{}_infos_test.pkl'.format(info_prefix))
+        info_path = osp.join(out_dir, '{}_infos_test.pkl'.format(info_prefix))
         mmengine.dump(data, info_path)
     else:
         print('train sample: {}, val sample: {}'.format(
             len(train_nusc_infos), len(val_nusc_infos)))
         data = dict(infos=train_nusc_infos, metadata=metadata)
-        info_path = osp.join(out_dir,
-                             '{}_infos_train.pkl'.format(info_prefix))
+        info_path = osp.join(out_dir, '{}_infos_train.pkl'.format(info_prefix))
         mmengine.dump(data, info_path)
         data['infos'] = val_nusc_infos
         info_val_path = osp.join(out_dir,
